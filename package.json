@@ -2,8 +2,13 @@
     "name": "Restfull-Nodejs-Mysql",
     "main": "server.js",
     "dependencies": {
+        "body-parser": "~1.0.1",
+        "dotenv": "^8.2.0",
         "express": "~4.0.0",
-        "mysql": "~2.18.1",
-        "body-parser": "~1.0.1"
+        "mysql": "~2.18.1"
+    },
+    "scripts": {
+    	"start": "node app.js",
+        "devel": "DEBUG=express:* node app.js"
     }
 }
