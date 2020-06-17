@@ -15,4 +15,4 @@ HEALTHCHECK --interval=30s CMD node healthcheck.js
 WORKDIR /opt/node_app/app
 COPY . .
 
-CMD [ "npm start migration"]
+CMD [ "npm start && npm run migration"]

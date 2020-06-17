@@ -3,6 +3,7 @@ var router = express.Router();
 var auth = require("../lib/auth");
 require('dotenv').config();
 var slug = process.env.API_SLUG;
+var usersController = require('../controllers/users.js');
 
 /**
  * healthcheck
@@ -26,25 +27,9 @@ router.get('/api/'+slug+'/users/:id', function(req, res, next) {
 });
 
 /**
- * Route new
+ * Route new / registration
  */
-router.post('/api/'+slug+'/users', function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
-
-    //this validation better using library for more complex validation
-    if (username.length > 8 && username.length < 4) {
-        return res.status(400).json({ error: 'Username length minimum 4 max is 8 character!' });
-    }
-
-    if (password.length < 6 && password.length > 8) {
-        return res.status(400).json({ error: 'Password length minimum 6 max is 8 character!' });
-    }
-
-    // must be store in DB
-    auth.setKey(username,password);
-    return res.status(200).json({ success: 'Register Success' });
-});
+router.post('/api/'+slug+'/users', usersController.create);
 
 /**
  * Route update

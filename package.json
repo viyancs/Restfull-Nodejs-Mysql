@@ -10,6 +10,6 @@
     "scripts": {
         "start": "node app.js",
         "devel": "DEBUG=express:* node app.js",
-        "migration" : "node models/users.js"
+        "migration" : "node lib/migration.js"
     }
 }
