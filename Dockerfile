@@ -12,7 +12,7 @@ ENV PATH /opt/node_app/node_modules/.bin:$PATH
 HEALTHCHECK --interval=30s CMD node healthcheck.js
 
 # copy in our source code last, as it changes the most
-WORKDIR /opt/node_app/app
 COPY . .
-
-CMD [ "npm start && npm run migration"]
+EXPOSE 8080
+CMD npm run migration
+CMD [ "npm","start"]
