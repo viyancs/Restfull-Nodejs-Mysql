@@ -6,19 +6,36 @@ var mysql = require('mysql');
 // console.log("user: " + process.env.DB_USER);
 // console.log("password: " + process.env.DB_PASS);
 // console.log("database: " + process.env.DB_NAME);
-
-var db = mysql.createConnection({
+var dbConfig = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database : process.env.DB_NAME
-});
+};
 
-db.connect(function(err) {
-    if (err) {
-        console.log(err);
-    }
-    console.log("Connected!");
-});
+var db;
+
+function manageConnection() {
+    db = mysql.createConnection(dbConfig);
+
+    db.connect(function(err) {
+        if(err) {
+            console.log('error when connecting to db:', err);
+            setTimeout(manageConnection, 2000);
+        }
+    });
+
+    db.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+            manageConnection();
+        } else {
+            throw err;
+        }
+    });
+}
+
+
+manageConnection();
 
 module.exports = db;

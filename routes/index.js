@@ -9,6 +9,7 @@ var usersController = require('../controllers/users.js');
  * healthcheck
  */
 router.get('/health', function(req, res, next) {
+    console.log('checked');
   res.send('checked');
 });
 

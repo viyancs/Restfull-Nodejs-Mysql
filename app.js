@@ -18,5 +18,5 @@ var env = process.env.NODE_ENV || 'development';
 
 var server = http.createServer(app);
 server.listen(port, function () {
-  debug('RESTFull API Server Start On Port ' + server.address().port)
+  console.log('RESTFull API Server Start On Port ' + server.address().port)
 })

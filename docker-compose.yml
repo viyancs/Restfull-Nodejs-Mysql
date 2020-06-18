@@ -2,9 +2,26 @@ version: '3.3'
 
 services:
     nodejs:
+        container_name: restfull_viyancs
         image: viyancs/restfull-nodejs:latest
         build: .
+        depends_on:
+            - cloud-sql-proxy
         volumes:
             - ./:/opt/node_app
         ports:
-            - "8080:80"
+            - "8080:8080"
+        restart: always
+    cloud-sql-proxy:
+        container_name: cloudsql-proxy_viyancs
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        command: [
+              "/cloud_sql_proxy",
+              "-instances=ca-sofiyani-test:asia-southeast2:restfull-viyancs=tcp:0.0.0.0:3306",
+              "-credential_file=/lib/g-cloud/ca-sofiyani-test-54e53184dfcd.json",
+            ]
+        volumes:
+            - ./lib/g-cloud:/lib/g-cloud
+        ports:
+            - 3306:3306
+        restart: always
