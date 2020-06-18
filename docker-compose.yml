@@ -13,7 +13,7 @@ services:
             - "8080:8080"
         restart: always
     cloud-sql-proxy:
-        container_name: cloudsql-proxy_viyancs
+        container_name: cloud-sql-proxy
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
         command: [
               "/cloud_sql_proxy",
