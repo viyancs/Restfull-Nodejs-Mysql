@@ -6,16 +6,14 @@
 - deployment.yml use for deploying app to production server
 - push local container to gcr.io , you can use another container registry like hub.docker.com
 - use that image which succesfully pushed to be use in yaml configuration(deployment)
+- secret generator <pre>kubectl create secret generic cloudsql-instance-credentials(name credentials that describe  in deployment.yaml) --from-file=credentials.json=lib/g-cloud/secret_file.json</pre>
 
 # Development way
 - create .env inside root directory copy paste from .env-example file.
 - Pointing DB_HOST config environment to docker service name `mysql-cloud` this name must same with service inside docker-compose mysql container. change later if You want to deploy to production using kubernetes deployment.yaml change with `127.0.0.1`
 - <pre>docker-compse up --build</pre>
-- or if you dont want to rebuild again & again <pre>docker-compose up </pre> 
+- or if you dont want to rebuild again & again <pre>docker-compose up </pre>
 - access `http://localhost:8080/api/v1/users`
-
-# Access secret generator
-kubectl create secret generic cloudsql-instance-credentials(name credentials that describe  in deployment.yaml) --from-file=credentials.json=lib/g-cloud/secret_file.json
 
 # logs case show
 kubectl logs restfull-nodejs-mysql-5d59d7cb69-6hfmc(pod name change every redeploy) cloud-sql-proxy(container name)
