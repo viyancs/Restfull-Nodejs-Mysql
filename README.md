@@ -1,5 +1,5 @@
 # Restfull-Nodejs-Mysql
-<p>This is api for simple case user register and login you can add more case whatever you want, authentication using Bearer TOKEN, use Nodejs,expressjs,mysql, Deployer using Kubernetes Google Cloud(GKE) ,connection mysql using sql cloud proxy</p>
+<p>Simple Restfull application which have case user register and login, You can add more case whatever you want, authentication using Bearer TOKEN, use Nodejs,expressjs,mysql, Deployer using Kubernetes Google Cloud(GKE) ,connection mysql using sql cloud proxy</p>
 - docker-compose.yml use for development -> docker-compose up to development environment
 - deployment.yml use for deploying app to production server
 - push local container to gcr.io , you can use another conainer registry like hub.docker.com
