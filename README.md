@@ -19,7 +19,7 @@ kubectl create secret generic cloudsql-instance-credentials(name credentials tha
 kubectl logs restfull-nodejs-mysql-5d59d7cb69-6hfmc(pod name change every redeploy) cloud-sql-proxy(container name)
 kubectl logs restfull-nodejs-mysql-5d59d7cb69-6hfmc cloud-sql-proxy(container name)
 
-# Assing Job into Cluster master
+# Assign Job into Cluster master
 1. login to cluster master example gcloud ... you can get the link in google cloud console -> connect in master cluster
 2. kubectl apply -f deployment.yaml -> will assign job
 3. job will execute automatically by kubernetes(deploying)
