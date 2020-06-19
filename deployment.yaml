@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: restfull-viyancs
-        image: asia.gcr.io/ca-sofiyani-test/viyancs/restfull-nodejs:1.0
+        image: asia.gcr.io/ca-sofiyani-test/viyancs/restfull-nodejs:1.2
       - name: cloud-sql-proxy
         # It is recommended to use the latest version of the Cloud SQL proxy
         # and update on a regular schedule

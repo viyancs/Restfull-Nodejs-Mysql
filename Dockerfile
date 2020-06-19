@@ -14,5 +14,5 @@ HEALTHCHECK --interval=30s CMD node healthcheck.js
 # copy in our source code last, as it changes the most
 COPY . .
 EXPOSE 8080
-CMD npm run migration
+#CMD npm run migration
 CMD [ "npm","start"]
