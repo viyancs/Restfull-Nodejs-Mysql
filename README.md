@@ -11,7 +11,7 @@
 - create .env inside root directory copy paste from .env-example file.
 - Pointing DB_HOST config environment to docker service name `mysql-cloud` this name must same with service inside docker-compose mysql container. change later if You want to deploy to production using kubernetes deployment.yaml change with `127.0.0.1`
 - <pre>docker-compse up --build</pre>
-- or <pre>docker-compose up </pre> if you dont want to rebuild again & again
+- or if you dont want to rebuild again & again <pre>docker-compose up </pre> 
 - access `http://localhost:8080/api/v1/users`
 
 # Access secret generator
