@@ -25,14 +25,14 @@ kubectl logs restfull-nodejs-mysql-5d59d7cb69-6hfmc cloud-sql-proxy(container na
 3. job will execute automatically by kubernetes(deploying)
 
 # Production Way
-1. <pre>docker tag viyancs/restfull-nodejs:latest asia.gcr.io/{project_id_google_cloud}/viyancs/restfull-nodejs:1.1</pre> -> increment version every update
+1. dont forget to increment version every update <pre>docker tag viyancs/restfull-nodejs:latest asia.gcr.io/{project_id_google_cloud}/viyancs/restfull-nodejs:1.1</pre> 
 2. <pre>docker push asia.gcr.io/{project_id_google_cloud}/viyancs/restfull-nodejs:1.1(version)</pre>
 3. change deployment.yaml for image that change to new version
     <pre>containers:
     - name: restfull-viyancs
       image: asia.gcr.io/{project_id_google_cloud}/viyancs/restfull-nodejs:1.1(version)</pre>
 4. login to cluster master
-5. <pre>kubectl apply -f deployment.yaml</pre> ->reconfigure and execute job
+5. reconfigure and execute job <pre>kubectl apply -f deployment.yaml</pre>
 
 # Api Documentations
 ====
